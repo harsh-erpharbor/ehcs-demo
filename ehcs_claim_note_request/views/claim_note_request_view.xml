@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_claim_note_req_form" model="ir.ui.view">
+        <field name="name">view.claim.note.req.form</field>
+        <field name="model">claim.note.request</field>
+        <field name="arch" type="xml">
+            <form string="Request">
+                <header>
+                        <button name="create_replace_picking" type="object" string="Confirm"
+                                groups="purchase.group_purchase_user"
+                                class="oe_highlight" states="draft"/>
+                        <button name="cancel_replace_picking" type="object" string="Cancel"
+                                states="draft"/>
+                        <button name="draft_replace_picking" type="object" string="Set To Draft"
+                                states="cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                <sheet>
+                    <group>
+                        <field name="picking_id"/>
+                    </group>
+                    <group colspan="4" col="4">
+                        <field name="partner_id"/>
+                        <field name="po_origin"/>
+                        <field name="location_id"/>
+                        <field name="location_dest_id"/>
+                        <field name="picking_type_id"/>
+                        <field name="group_id"/>
+                        <field name="date"/>
+                    </group>
+                    <notebook>
+                        <page string="Operations">
+                            <field name="request_line">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_claim_note_req_tree" model="ir.ui.view">
+        <field name="name">view.claim.note.req.tree</field>
+        <field name="model">claim.note.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="picking_id"/>
+                <field name="partner_id"/>
+                <field name="po_origin"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_claim_note_request" model="ir.actions.act_window">
+        <field name="name">Claim Note Request</field>
+        <field name="res_model">claim.note.request</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_claim_note_request"
+        name="Claim Note Request"
+        parent="purchase.menu_purchase_control"
+        action="action_claim_note_request"
+        sequence="20"/>
+
+</odoo>

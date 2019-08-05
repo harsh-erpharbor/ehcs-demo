@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_stock_picking_form" model="ir.ui.view">
+        <field name="name">view.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="is_shipment" invisible="1"/>
+            </field>
+            <button name="action_toggle_is_locked" position="after">
+                <button name="%(ehcs_claim_note_request.act_stock_replace_picking)d"
+                        type="action"
+                        string="Replace"
+                        class="oe_highlight"
+                        groups="ehcs_claim_note_request.group_stock_quality_dept"
+                        attrs="{'invisible': ['|', ('state', '!=', 'done'), ('is_shipment', '=', True)]}"/>
+            </button>
+        </field>
+    </record>
+
+</odoo>

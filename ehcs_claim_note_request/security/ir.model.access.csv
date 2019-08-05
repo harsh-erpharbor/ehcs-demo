@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_claim_note_req_user,access.claim.note.req.user,model_claim_note_request,purchase.group_purchase_user,1,0,0,0
+access_claim_note_req_line_user,access.claim.note.req.line.user,model_claim_note_request_line,purchase.group_purchase_user,1,0,0,0
+access_claim_note_req_manager,access.claim.note.req.manager,model_claim_note_request,purchase.group_purchase_manager,1,1,1,1
+access_claim_note_req_line_manager,access.claim.note.req.manager,model_claim_note_request_line,purchase.group_purchase_manager,1,1,1,1
+access_claim_note_req_inventory_user,access.claim.note.req.inventory.user,model_claim_note_request,stock.group_stock_user,1,1,1,0
+access_claim_note_req_line_inventory_user,access.claim.note.req.line.inventory.user,model_claim_note_request_line,stock.group_stock_user,1,1,1,0
+access_claim_note_req_inventory_manager,access.claim.note.req.inventory.manager,model_claim_note_request,stock.group_stock_manager,1,1,1,1
+access_claim_note_req_line_inventory_manager,access.claim.note.req.line.inventory.manager,model_claim_note_request_line,stock.group_stock_manager,1,1,1,1
