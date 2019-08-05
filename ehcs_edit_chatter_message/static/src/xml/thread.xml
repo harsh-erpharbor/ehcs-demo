@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-extend="mail.ChatThread.Message">
+         <t t-jquery="i[t-if='options.display_stars &amp;&amp; !message.is_system_notification']" t-operation="before">
+             <i t-att-class="'fa fa-lg fa-edit fa-fw'" t-att-data-message-id="message.id" title="Edit" style="cursor: pointer;"/>
+             <i t-att-class="'fa fa-lg fa-trash fa-fw'" t-att-data-message-id="message.id" title="Delete" style="cursor: pointer;"/>
+         </t>
+    </t>
+
+    <t t-name="view_chatter_message_template" name="View Chatter Message Template">
+        <div class="modal fade" id="ViewMessageModal" role="dialog">
+            <div class="modal-dialog" style="width: 850px !important;">
+                <div class="modal-content">
+                    <div class="modal-header cart_class" style="padding:5px !important;">
+                        <button type="button" data-dismiss="modal" class="close cart_class" style="color:red !important;">x</button>
+                        <h3 class="h4_white">Chatter Message</h3>
+                    </div>
+                    <div class="modal-body">
+                        <b>Message</b>
+                        <textarea id="text_message" rows="4" cols="50" t-att-data-message-id="msg_id"><t t-esc="msg_details.msg_body"/></textarea>
+                        <textarea id="text_message_id" rows="4" cols="50" style="display:none;"><t t-esc="msg_id"/></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>
