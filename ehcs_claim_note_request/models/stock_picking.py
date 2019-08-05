@@ -11,7 +11,7 @@ class StockPicking(models.Model):
     @api.depends('picking_type_id')
     def _compute_quality_dept(self):
         for picking in self:
-            if picking.picking_type_id.code not in ['incoming', 'internal']:
+            if picking.picking_type_id.code not in ['incoming']:
                 picking.is_shipment = True
 
 
